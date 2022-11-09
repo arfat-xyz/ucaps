@@ -1,26 +1,13 @@
-import React, { useEffect, useState } from "react";
 import InputLabel from "@mui/material/InputLabel";
 
 import Select from "react-select";
-const chooseLevelOfStudy = [
-  {
-    label: "Diploma (Polytechnic)",
-    value: "diploma",
-  },
-  {
-    label: "Undergraduate/Bachelors",
-    value: "bachelors",
-  },
-  {
-    label: "Postgraduate/ Masters",
-    value: "masters",
-  },
-];
 
 const LevelOfStudyComponent = ({
+  chooseLevelOfStudy,
   selectedLevelOfStudy,
   setSelectedLevelOfStudy,
 }) => {
+  console.log();
   return (
     <>
       <InputLabel variant="standard" htmlFor="uncontrolled-native">

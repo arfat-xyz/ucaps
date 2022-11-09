@@ -3,7 +3,14 @@ import FormHelperText from "@mui/material/FormHelperText";
 import { Box } from "@mui/system";
 import { useForm } from "react-hook-form";
 
-const GPAComponent = ({ handleSubmitForOnSubmit }) => {
+const GPAComponent = ({
+  handleSubmitForOnSubmit,
+  systemOfStudy,
+  selectedLevelOfStudy,
+}) => {
+  // console.log("systemOfStudy", systemOfStudy);
+
+  // take important values from useForm which given by react hook form
   const {
     register,
     handleSubmit,
@@ -18,56 +25,107 @@ const GPAComponent = ({ handleSubmitForOnSubmit }) => {
         >
           {/* This is for SSC input GPA  */}
           <InputLabel>Enter your GPA with additional subject</InputLabel>
-          <TextField
-            {...register("ssc", {
-              required: "Please input your GPA",
-              valueAsNumber: true,
-              max: {
-                value: 5,
-                message: "Max value is 5",
-              },
-              min: {
-                value: 2.5,
-                message: "Min value is 2.5",
-              },
-            })}
-            id="ssc"
-            type={"number"}
-            label="SSC"
-            variant="outlined"
-            fullWidth
-            margin="normal"
-            aria-describedby="component-error-text"
-            inputProps={{ step: ".01" }}
-            color={errors.ssc?.message ? "error" : ""}
-          />
-          <FormHelperText error>{errors.ssc?.message}</FormHelperText>
+          {selectedLevelOfStudy?.value !== "masters" && (
+            <>
+              <TextField
+                {...register("ssc", {
+                  required: "Please input your GPA",
+                  valueAsNumber: true,
+                  max: {
+                    value: 5,
+                    message: "Max value is 5",
+                  },
+                  min: {
+                    value: 2.5,
+                    message: "Min value is 2.5",
+                  },
+                })}
+                id="ssc"
+                type={"number"}
+                label="SSC"
+                variant="outlined"
+                fullWidth
+                margin="normal"
+                aria-describedby="component-error-text"
+                inputProps={{ step: ".01" }}
+                color={errors.ssc?.message ? "error" : ""}
+              />
+              <FormHelperText error>{errors.ssc?.message}</FormHelperText>
+            </>
+          )}
 
           {/* This is for HSC input GPA  */}
-          <TextField
-            {...register("hsc", {
-              required: "Please input your GPA",
-              valueAsNumber: true,
-              max: {
-                value: 5,
-                message: "Max value is 5",
-              },
-              min: {
-                value: 2.5,
-                message: "Min value is 2.5",
-              },
-            })}
-            id="hsc"
-            type={"number"}
-            label="HSC"
-            variant="outlined"
-            fullWidth
-            margin="normal"
-            aria-describedby="component-error-text"
-            inputProps={{ step: ".01" }}
-            color={errors.hsc?.message ? "error" : ""}
-          />
-          <FormHelperText error>{errors.hsc?.message}</FormHelperText>
+          {(selectedLevelOfStudy?.value !== "masters") |
+          (selectedLevelOfStudy?.value === "bachelors") ? (
+            <TextField
+              {...register("hsc", {
+                required: "Please input your GPA",
+                valueAsNumber: true,
+                max: {
+                  value: 5,
+                  message: "Max value is 5",
+                },
+                min: {
+                  value: 2.5,
+                  message: "Min value is 2.5",
+                },
+              })}
+              id="hsc"
+              type={"number"}
+              label="HSC"
+              variant="outlined"
+              fullWidth
+              margin="normal"
+              aria-describedby="component-error-text"
+              inputProps={{ step: ".01" }}
+              color={errors.hsc?.message ? "error" : ""}
+            />
+          ) : (
+            ""
+          )}
+
+          {/* This is for GRE / GMAT input GPA  */}
+          {selectedLevelOfStudy?.value === "masters" ? (
+            <TextField
+              {...register(systemOfStudy?.value, {
+                required: "Please input your GPA",
+                valueAsNumber: true,
+                max: {
+                  value: systemOfStudy?.value === "gmat" ? 800 : 340,
+                  message: `Max value is ${
+                    systemOfStudy?.value === "gmat" ? 800 : 340
+                  }`,
+                },
+                min: {
+                  value: systemOfStudy?.value === "gmat" ? 200 : 260,
+                  message: `Min value is ${
+                    systemOfStudy?.value === "gmat" ? 200 : 260
+                  }`,
+                },
+              })}
+              id={systemOfStudy?.value}
+              type={"number"}
+              label={systemOfStudy?.label}
+              variant="outlined"
+              fullWidth
+              margin="normal"
+              aria-describedby="component-error-text"
+              inputProps={{ step: ".01" }}
+              color={errors.hsc?.message ? "error" : ""}
+            />
+          ) : (
+            ""
+          )}
+          {errors?.gre?.message ? (
+            <FormHelperText error>{errors.gre?.message}</FormHelperText>
+          ) : (
+            ""
+          )}
+          {errors?.gmat?.message ? (
+            <FormHelperText error>{errors.gmat?.message}</FormHelperText>
+          ) : (
+            ""
+          )}
 
           <Button fullWidth type="submit" color="success" variant="contained">
             Outlined

@@ -1,6 +1,7 @@
 import React from "react";
-import InputLabel from "@mui/material/InputLabel";
 import Select from "react-select";
+
+// static country name
 const chooseCountry = [
   {
     label: "Bangladesh",
