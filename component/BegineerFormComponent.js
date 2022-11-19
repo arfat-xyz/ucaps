@@ -16,7 +16,6 @@ const BegineerFormComponent = () => {
 
   // get and set cookies for further use
   const [cookies, setCookie] = useCookies(["inputDetailes"]);
-
   // form submission with set cookies
   const handleSubmitForOnSubmit = (e) => {
     setGPA(e);
