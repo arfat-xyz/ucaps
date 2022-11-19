@@ -20,14 +20,15 @@ const BegineerFormComponent = () => {
   // form submission with set cookies
   const handleSubmitForOnSubmit = (e) => {
     setGPA(e);
+    console.log(e);
     setTotalGPA(e.ssc + e.hsc);
     setCookie("inputDetailes", {
-      e,
+      education: e,
       systemOfStudy: systemOfStudy.value,
       selectedLevelOfStudy: selectedLevelOfStudy.value,
     });
   };
-  console.log("coockies", cookies.inputDetailes);
+  // console.log("coockies", cookies.inputDetailes);
 
   return (
     <>

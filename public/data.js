@@ -19,40 +19,192 @@ const chooseLevelOfStudy = [
     value: "bachelors",
     chooseSystemOfStudy: [
       {
-        label: "National Qualification",
+        label: "National Qualifications",
         options: [
           {
             value: "ssc/hsc(bangla)",
-            label: "SSC/HSC (Bangla)",
+            label: "SSC & HSC (Bangla)",
           },
           {
             value: "ssc/hsc(english)",
-            label: "SSC/HSC (English)",
+            label: "SSC & HSC (English)",
           },
           {
             value: "dakhil/alim",
-            label: "Dakhil/Alim",
+            label: "Dakhil & Alim",
           },
         ],
       },
       {
-        label: "Internation Qualification",
+        label: "Internationl Qualifications",
         options: [
           {
-            value: "o'level/a'level",
-            label: "O'Level / A'Level",
+            value: "igcse/a'level",
+            label: "IGCSE & A'Level",
+            igcse: [
+              {
+                label: "Subject 1",
+                value: "subject1",
+                options: [
+                  {
+                    value: 5,
+                    label: "A",
+                  },
+                  {
+                    value: 4,
+                    label: "B",
+                  },
+                  {
+                    value: 3,
+                    label: "C",
+                  },
+                  {
+                    value: 2,
+                    label: "D",
+                  },
+                ],
+              },
+              ,
+              {
+                label: "Subject 2",
+                value: "subject2",
+                options: [
+                  {
+                    value: 5,
+                    label: "A",
+                  },
+                  {
+                    value: 4,
+                    label: "B",
+                  },
+                  {
+                    value: 3,
+                    label: "C",
+                  },
+                  {
+                    value: 2,
+                    label: "D",
+                  },
+                ],
+              },
+
+              {
+                label: "Subject 3",
+                value: "subject3",
+                options: [
+                  {
+                    value: 5,
+                    label: "A",
+                  },
+                  {
+                    value: 4,
+                    label: "B",
+                  },
+                  {
+                    value: 3,
+                    label: "C",
+                  },
+                  {
+                    value: 2,
+                    label: "D",
+                  },
+                ],
+              },
+              {
+                label: "Subject 4",
+                value: "subject4",
+                options: [
+                  {
+                    value: 5,
+                    label: "A",
+                  },
+                  {
+                    value: 4,
+                    label: "B",
+                  },
+                  {
+                    value: 3,
+                    label: "C",
+                  },
+                  {
+                    value: 2,
+                    label: "D",
+                  },
+                ],
+              },
+              {
+                label: "Subject 5",
+                value: "subject5",
+                options: [
+                  {
+                    value: 5,
+                    label: "A",
+                  },
+                  {
+                    value: 4,
+                    label: "B",
+                  },
+                  {
+                    value: 3,
+                    label: "C",
+                  },
+                  {
+                    value: 2,
+                    label: "D",
+                  },
+                ],
+              },
+            ],
+            aLebel: [
+              {
+                label: "Subject 1",
+                value: "aLebelSubject1",
+                options: [
+                  {
+                    value: 5,
+                    label: "A",
+                  },
+                  {
+                    value: 4,
+                    label: "B",
+                  },
+                  {
+                    value: 3,
+                    label: "C",
+                  },
+                  {
+                    value: 2,
+                    label: "D",
+                  },
+                ],
+              },
+              {
+                label: "Subject 2",
+                value: "aLebelSubject2",
+                options: [
+                  {
+                    value: 5,
+                    label: "A",
+                  },
+                  {
+                    value: 4,
+                    label: "B",
+                  },
+                  {
+                    value: 3,
+                    label: "C",
+                  },
+                  {
+                    value: 2,
+                    label: "D",
+                  },
+                ],
+              },
+            ],
           },
           {
             value: "sat",
             label: "SAT",
-          },
-          {
-            value: "ib",
-            label: "IB",
-          },
-          {
-            value: "ap",
-            label: "IB",
           },
         ],
       },
@@ -66,12 +218,16 @@ const chooseLevelOfStudy = [
         label: "Internation Qualification",
         options: [
           {
-            value: "gmat",
-            label: "GMAT (200-800",
+            value: "cgpa",
+            label: "CGPA",
           },
           {
             value: "gre",
-            label: "GRE (260-340",
+            label: "GRE",
+          },
+          {
+            value: "gmat",
+            label: "GMAT",
           },
         ],
       },
